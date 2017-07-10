@@ -3,7 +3,7 @@
 require 'json'
 
 env_dir = ENV['ENV_DIR']
-new_relic_api_key = `cat #{env_dir}/NEW_RELIC_API_KEY`
+new_relic_api_key = `cat #{env_dir}/NEW_RELIC_LICENSE_KEY`
 new_relic_app_id = `cat #{env_dir}/NEW_RELIC_APP_ID`
 
 params = {

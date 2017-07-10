@@ -5,10 +5,15 @@ require 'json'
 env_dir = ENV['ENV_DIR']
 new_relic_api_key = `cat #{env_dir}/NEW_RELIC_API_KEY`
 new_relic_app_id = `cat #{env_dir}/NEW_RELIC_APP_ID`
+deployment_user = `cat #{env_dir}/DEPLOYMENT_USER`
+commit_id = ENV['SOURCE_VERSION']
 
 params = {
   deployment: {
-    revision: ENV['SOURCE_VERSION']
+    revision: commit_id,
+    changelog: 'Deploying #{commit_id}',
+    description: 'Deploying #{commit_id}',
+    user: deployment_user
   }
 }
 
